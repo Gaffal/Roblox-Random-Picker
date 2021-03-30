@@ -46,7 +46,7 @@ function RandomPicker:Pick(seed: number | nil)
 		end
 	end
 
-	return self:Pick()
+	return self:Pick(seed)
 end
 
 return RandomPicker
