@@ -7,7 +7,7 @@ function RandomPicker.new(items: Array | nil)
 	}, RandomPicker)
 end
 
-function RandomPicker:AddItem(item, rarity: number)
+function RandomPicker:Add(item, rarity: number)
 	table.insert(self.Items, {
 		Item = item,
 		Rarity = rarity,
@@ -30,7 +30,8 @@ function RandomPicker:_SortByRarity()
 	end)
 end
 
-function RandomPicker:PickRandom(seed: number | nil)
+function RandomPicker:Pick(seed: number | nil)
+	assert(#self.Items > 0, 'Add an item bofore choosing one.')
 	self:_SortByRarity()
 
 	local totalSum = self:_GetTotalSum()
@@ -45,7 +46,7 @@ function RandomPicker:PickRandom(seed: number | nil)
 		end
 	end
 
-	return self:PickRandom()
+	return self:Pick()
 end
 
 return RandomPicker
