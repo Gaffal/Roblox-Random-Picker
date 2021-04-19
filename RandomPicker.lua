@@ -31,7 +31,7 @@ function RandomPicker:_SortByRarity()
 end
 
 function RandomPicker:Pick(seed: number | nil)
-	assert(#self.Items > 0, 'Add an item bofore choosing one.')
+	assert(#self.Items > 0)  -- Item list is empty
 	self:_SortByRarity()
 
 	local totalSum = self:_GetTotalSum()
