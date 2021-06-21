@@ -10,7 +10,10 @@ local RandomPicker = require(path)
 local MyPicker = RandomPicker.new()
 
 MyPicker:Add(item: any, rarity: number)
+MyPicker:Remove(item: any)
+
 local RandomItem = MyPicker:Pick(seed: number | nil)
+MyPicker:Destroy()
 
 print(RandomItem)
 ```
@@ -49,9 +52,20 @@ local function ChooseMurder()
 		MurderPicker:Add(player, chance)
 	end
 
-	return MurderPicker:Pick()
+	return MurderPicker:SinglePick()
 end
 
 local Murder = ChooseMurder()
 print(Murder.Name .. ' is the murder!')
+```
+
+### Methods
+```lua
+local Picker = RandomPicker.new()
+
+Picker:Add(item: any, rarity: number) -- and an item with a rarity
+Picker:Remove(item: any) -- remove a previous added item
+Picker:Pick(seed: number | nil) -- pick a random item
+Picker:SinglePick(seed: number | nil) -- calls 'Picker:Pick' and then, 'Picker:Destroy'
+Picker:Destroy() -- destroys the picker
 ```
