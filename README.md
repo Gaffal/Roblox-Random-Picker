@@ -63,9 +63,9 @@ print(Murder.Name .. ' is the murder!')
 ```lua
 local Picker = RandomPicker.new()
 
-Picker:Add(item: any, rarity: number) -- and an item with a rarity
-Picker:Remove(item: any) -- remove a previous added item
-Picker:Pick(seed: number | nil) -- pick a random item
-Picker:SinglePick(seed: number | nil) -- calls 'Picker:Pick' and then, 'Picker:Destroy'
+Picker:Add(item: any, rarity: number) -- adds an item with a rarity
+Picker:Remove(item: any) -- removes a previous added item
+Picker:Pick(seed: number | nil) -- picks a random item
+Picker:SinglePick(seed: number | nil) -- calls 'Picker::Pick' and then, 'Picker::Destroy'
 Picker:Destroy() -- destroys the picker
 ```
