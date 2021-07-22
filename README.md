@@ -32,8 +32,8 @@ Chest:Add('Axe', 30)
 Chest:Add('Shield', 40)
 Chest:Add('Potion', 10)
 
-local ChoosenItem = Chest:Pick()
-print(ChoosenItem .. ' was choosen!')
+local ChosenItem = Chest:Pick()
+print(ChosenItem .. ' was chosen!')
 ``` 
 
 ### Murder Example:
@@ -48,7 +48,7 @@ local function ChooseMurder()
 	local MurderPicker = RandomPicker.new()
 
 	for _, player in ipairs(Players:GetPlayers()) do
-		local chance = player.Stats.ChanceToBeMurder.Value -- an IntValue inside a folder
+		local chance = player:GetAttribute('ChanceToBeMurder')
 		MurderPicker:Add(player, chance)
 	end
 
